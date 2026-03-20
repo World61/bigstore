@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Big Basket Offer</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <style>
+        body { background:#fff; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial; margin:0; }
+        
+        /* Header */
+        .header { background:white; padding:15px; border-bottom:1px solid #eee; }
+        .logo img { height:55px; }
+
+      .main-card {
+            max-width: 950px;
+            margin: 20px auto;
+            border: 2px solid #1a8f3c;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        /* Top Green Banner */
+        .top-banner {
+            background: #1a8f3c;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .content-wrapper { display: flex; padding: 25px; gap: 30px; }
+
+        /* Left Image Section */
+        .image-container {
+            flex: 0 0 45%;
+            background: #eef5ff;
+            border-radius: 10px;
+            padding: 5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container img { width: 100%; height:100%; border-radius: 5px; }
+
+        /* Right Details Section */
+        .details-container { flex: 1; }
+        .product-title { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 12px; line-height: 1.2; }
+        
+        .meta-info { font-size: 13px; color: #1a8f3c; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .stars { color: #ffc107; font-size: 12px; }
+        .bought-today { color: #1a8f3c; font-weight: 500; }
+
+        .price-tag{font-size:32px;font-weight:800;color:#000;}
+.old-price{text-decoration:line-through;color:#999;font-size:20px;margin-left:10px;}
+.discount-badge{color:#d32f2f;background:#fce8e8;padding:2px 8px;border-radius:5px;font-size:14px;font-weight:bold;margin-left:10px;}
+.timer-text{color:#1a8f3c;font-weight:600;margin:10px 0;display:flex;align-items:center;gap:5px;}
+        .stock-alert {
+            background: #fff9e6;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 13px;
+            color: #856404;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .feature-item { display: flex; align-items: center; gap: 8px; }
+        .feature-item i { font-size: 14px; color: #1a8f3c; }
+
+        .buy-btn {
+            background: #1a8f3c;
+            color: #fff;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .trust-badges { text-align: center; font-size: 10px; color: #777; line-height: 1.8; }
+        
+        .footer-strip {
+            background: #f0fff4;
+            border-top: 1px solid #d1e7dd;
+            padding: 10px;
+            text-align: center;
+            font-size: 13px;
+            color: #1a8f3c;
+            font-weight: 500;
+        }
+        
+    .footer{
+background:#f5f5f5;
+padding:40px 0;
+margin-top:150px;
+}
+
+.footer-title{
+color:#1a8f3c;
+font-weight:bold;
+}
+
+.footer-text{
+color:#666;
+font-size:14px;
+}
+
+.social i{
+width:40px;
+height:40px;
+line-height:40px;
+text-align:center;
+background:white;
+border-radius:50%;
+margin-right:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.store{
+height:45px;
+margin-left:10px;
+}
+
+.quick-links a{
+margin-right:15px;
+color:#444;
+font-size:14px;
+text-decoration:none;
+}
+
+.service-box{
+background:white;
+padding:20px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.service-box p{
+margin-top:10px;
+font-size:14px;
+}
+
+.footer-bottom{
+background:#eee;
+padding:15px 0;
+margin-top:30px;
+font-size:14px;
+}
+
+
+
+/* MOBILE FOOTER FIX */
+
+@media(max-width:768px){
+
+.footer{
+text-align:center;
+padding:30px 15px;
+}
+
+.footer-title{
+font-size:26px;
+}
+
+.footer-text{
+max-width:500px;
+margin:auto;
+}
+
+.social{
+margin-top:15px;
+}
+
+.social i{
+margin:0 8px;
+}
+
+.app{
+text-align:center !important;
+margin-top:25px;
+}
+
+.store{
+height:48px;
+margin:8px;
+}
+
+.quick-links{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+margin-top:15px;
+}
+
+.quick-links a{
+display:inline-block;
+font-size:15px;
+}
+
+.service{
+margin-top:25px;
+}
+
+.service-box{
+margin-bottom:15px;
+}
+
+.footer-bottom{
+text-align:center;
+}
+
+.footer-bottom .container{
+flex-direction:column;
+gap:5px;
+}
+.logo img{
+    height:45px;
+}
+}
+
+        /* Responsive Fix */
+        @media (max-width: 768px) {
+            .img-col { border-right: none; border-bottom: 1px solid #eee; }
+        }
+        /* Mobile Optimization & Floating Bar CSS */
+
+@media (max-width: 768px) {
+    /* Stack content vertically on mobile */
+    .content-wrapper {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .image-container {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Floating Bottom Bar (Desktop par hidden rahega) */
+    .floating-buy-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 10px 15px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1000;
+        border-top: 1px solid #eee;
+    }
+
+    .floating-buy-bar .btn-buy-now {
+        background: #1a8f3c;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        flex-grow: 1;
+        margin-left: 15px;
+        text-transform: uppercase;
+    }
+
+    .floating-price-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .floating-price-info .price {
+        font-size: 20px;
+        font-weight: 800;
+        color: #000;
+        line-height: 1;
+    }
+
+    .floating-price-info .label {
+        font-size: 12px;
+        color: #666;
+        text-transform: uppercase;
+    }
+
+    /* Padding for body so content doesn't hide behind the bar */
+    body {
+        padding-bottom: 80px;
+    }
+}
+
+/* Hide floating bar on Desktop */
+@media (min-width: 769px) {
+    .floating-buy-bar {
+        display: none;
+    }
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container d-flex justify-content-between align-items-center">
+       <div class="logo">
+<img src="logo.png">
+</div>
+
+<div style="font-size:22px;">
+    <img src="shopping-cart.png" alt="Cart" style="width:32px;height:32px;">
+</div>
+</div>
+    </div>
+</header>
+
+<div class="main-card">
+    <div class="top-banner">
+        ⚡ FLASH COMBO DEAL • EXTRA SAVINGS ACTIVE
+    </div>
+
+    <div class="content-wrapper">
+        <div class="image-container">
+            <img id="p-img" src="" alt="Combo Offer">
+        </div>
+
+        <div class="details-container">
+            <h1 class="product-title" id="p-title"></h1>
+            
+            <div class="meta-info">
+                <span style="color:#f5a623;font-size:18px;">⭐</span>
+<strong id="p-rating"></strong>
+<span>• <span id="p-reviews"></span>+ ratings</span>
+<span style="color:#1a8f3c;">👥 128 bought today</span>
+</div>
+
+<div class="d-flex align-items-center">
+<span class="price-tag" id="p-price"></span>
+<span class="old-price" id="p-old"></span>
+<span class="discount-badge" id="p-discount"></span>
+</div>
+
+<div class="timer-text">
+🕒 Offer ends in <span id="dynamic-timer">14:55</span>
+</div>
+
+            <div class="stock-alert">
+                <i class="fas fa-exclamation-circle"></i>
+                Hurry! Only <strong>7 units</strong> left in stock
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item"><i class="fas fa-truck"></i> Free Delivery by March 22</div>
+                <div class="feature-item"><i class="fas fa-undo"></i> 7-Day Easy Returns</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> 100% Genuine Product</div>
+                <div class="feature-item"><i class="fas fa-lock"></i> Secure Checkout</div>
+            </div>
+
+            <button class="buy-btn" id="buyBtn">BUY NOW • SAVE MORE</button>
+
+            <div class="trust-badges">
+                <img src="https://img.icons8.com/color/20/000000/visa.png"/>
+                <img src="https://img.icons8.com/color/20/000000/mastercard.png"/>
+                Pay via UPI, Cards, Net Banking, Wallets | <i class="fas fa-lock"></i> SSL Encrypted<br>
+                <i class="fas fa-shield-alt"></i> We do not store card details • 100% secure payment
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-strip">
+        <i class="fas fa-check-circle"></i> Trusted by 1M+ customers • Safe & Secure Payments
+    </div>
+</div>
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row align-items-center mb-4">
+
+<!-- LEFT -->
+
+<div class="col-md-6">
+
+<h3 class="footer-title">Big Basket Shopping India</h3>
+
+<p class="footer-text">
+Your trusted partner for quality products at the best prices.
+Shop with confidence and enjoy hassle-free returns.
+</p>
+
+<div class="social">
+
+<i class="fab fa-facebook-f"></i>
+<i class="fab fa-twitter"></i>
+<i class="fab fa-instagram"></i>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="col-md-6 text-md-end app">
+
+<h5>Download Big Basket Ready Mobile App Now!</h5>
+
+<img src="googleplay.svg" class="store">
+<img src="appstore.svg" class="store">
+
+</div>
+
+</div>
+
+<hr>
+
+<!-- QUICK LINKS -->
+
+<h6 class="mb-3">Quick Links</h6>
+
+<div class="quick-links">
+
+<a href="#">About Us</a>
+<a href="#">Contact Us</a>
+<a href="#">FAQs</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms and Conditions</a>
+<a href="#">Pricing, Delivery & Return Policy</a>
+<a href="#">Refund Policy</a>
+<a href="#">Pickup Points</a>
+<a href="#">Disclaimer</a>
+
+</div>
+
+
+<!-- SERVICES -->
+
+<div class="row service mt-4">
+
+<div class="col-md-3 col-6">
+<div class="service-box">
+🚚
+<p>Free Delivery</p>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="service-box">
+🔒
+<p>Secure Payment</p>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="service-box">
+↩
+<p>7-Day Returns</p>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="service-box">
+✔
+<p>100% Authentic</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<div class="container d-flex justify-content-between flex-wrap">
+
+<p>© 2025 Avenue E-Commerce Limited (AEL). All Rights Reserved.</p>
+
+<p>Made with ❤️ in India | Version 2.0</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<div class="floating-buy-bar">
+    <div class="floating-price-info">
+    </div>
+    <button class="btn-buy-now" onclick="document.getElementById('buyBtn').click()">
+        BUY NOW • ₹499
+    </button>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const id = new URLSearchParams(window.location.search).get("id") || 1;
+
+    fetch("https://keralamegajackpotlottery.online/bigbasket/get_products.php")
+    .then(res => res.json())
+    .then(data => {
+        let p = data.find(x => x.id == id);
+        if(!p) return;
+
+        let old = parseFloat(p.old_price);
+        let price = parseFloat(p.price);
+        let discount = Math.round(((old-price)/old)*100);
+
+        document.getElementById("page-title").innerText = p.title;
+        document.getElementById("p-img").src = "https://keralamegajackpotlottery.online/bigbasket/" + p.image;
+        document.getElementById("p-title").innerText = p.title;
+        document.getElementById("p-rating").innerText = p.rating;
+        document.getElementById("p-reviews").innerText = p.reviews;
+        document.getElementById("p-price").innerText = "₹" + price;
+        document.getElementById("p-old").innerText = "₹" + old;
+        document.getElementById("p-discount").innerText = discount + "% Off";
+document.querySelector(".btn-buy-now").innerText = "BUY NOW • ₹" + price;
+
+        document.getElementById("buyBtn").onclick = () => {
+            window.location.href = "cart.html?id=" + p.id;
+        };
+    });
+
+    // Timer Logic
+    setInterval(() => {
+        let el = document.getElementById("dynamic-timer");
+        let t = el.innerText.split(":");
+        let s = parseInt(t[0]) * 60 + parseInt(t[1]);
+        s = s > 0 ? s - 1 : 900;
+        el.innerText = Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+    }, 1000);
+
+    // Delivery Date
+    let d = new Date();
+    d.setDate(d.getDate() + 2);
+    document.getElementById("delivery-date").innerText = d.toLocaleDateString("en-US", {month: "long", day: "numeric"});
+// Existing price update ke niche ye add karein:
+</script>
+
+</body>
+</html>
