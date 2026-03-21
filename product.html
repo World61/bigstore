@@ -521,7 +521,7 @@ Shop with confidence and enjoy hassle-free returns.
 <script>
     const id = new URLSearchParams(window.location.search).get("id") || 1;
 
-    fetch("https://keralamegajackpotlottery.online/bigbasketstore/get_products.php")
+    fetch("https://honeydew-bear-702897.hostingersite.com/bigbasket/get_products.php")
     .then(res => res.json())
     .then(data => {
         let p = data.find(x => x.id == id);
@@ -532,7 +532,7 @@ Shop with confidence and enjoy hassle-free returns.
         let discount = Math.round(((old-price)/old)*100);
 
         document.getElementById("page-title").innerText = p.title;
-        document.getElementById("p-img").src = "https://keralamegajackpotlottery.online/bigbasketstore/" + p.image;
+        document.getElementById("p-img").src = "https://honeydew-bear-702897.hostingersite.com/bigbasket/" + p.image;
         document.getElementById("p-title").innerText = p.title;
         document.getElementById("p-rating").innerText = p.rating;
         document.getElementById("p-reviews").innerText = p.reviews;
