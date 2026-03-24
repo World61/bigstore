@@ -204,7 +204,8 @@
     .then(res => res.json())
     .then(data => {
         if(data.status === "otp_sent"){
-            window.location.href = "verify.html";
+            window.location.href = "Verify.html";
+            
         } else {
             document.getElementById("msg").innerHTML = "Invalid Credentials ❌";
         }
