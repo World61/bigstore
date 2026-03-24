@@ -63,9 +63,17 @@ body{ background:#f8fafc; font-family: 'Segoe UI', Arial, sans-serif; }
     border-radius:15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 
-    position: sticky;
-    top: 90px; /* 👈 header ke niche stick hoga */
-}.prod-img { border-radius: 8px; border: 1px solid #f1f5f9; padding: 5px; }
+    position: fixed;   /* 👈 MAIN CHANGE */
+    top: 100px;        /* header ke niche */
+    right: 40px;       /* right side spacing */
+    width: 350px;      /* fixed width */
+}
+    @media(min-width:768px){
+    .col-md-7{
+        margin-right: 380px; /* space for fixed summary */
+    }
+}
+    .prod-img { border-radius: 8px; border: 1px solid #f1f5f9; padding: 5px; }
 .summary-line { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 15px; }
 .total-line { 
     border-top: 2px solid #f1f5f9; padding-top: 15px; margin-top: 15px;
