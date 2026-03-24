@@ -5,7 +5,9 @@
 <script>
 (async function(){
     try{
-        let res = await fetch("https://honeydew-bear-702897.hostingersite.com/bigbasket/api/check_auth.php");
+let res = await fetch("https://honeydew-bear-702897.hostingersite.com/bigbasket/api/check_auth.php", {
+    credentials: "include"
+});
         let data = await res.json();
 
         if(data.status !== "ok"){
