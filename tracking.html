@@ -1,92 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tracking Settings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigBasket | Tracking Settings</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-<style>
-body {
-    background: #f1f5f9;
-    font-family: sans-serif;
-}
+    <style>
+        :root {
+            --primary-bg: #f1f5f9;
+            --sidebar-bg: #0f172a;
+            --accent-color: #3b82f6;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
 
-.container-box {
-    max-width: 900px;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--primary-bg);
+            overflow-x: hidden;
+        }
 
-textarea {
-    font-family: monospace;
-}
-</style>
+        /* --- Sidebar Style --- */
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            position: fixed;
+            left: 0;
+            top: 0;
+            color: white;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 30px 25px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            padding: 14px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+            text-decoration: none;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            margin-left: 260px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .container-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* --- Code Area Look --- */
+        textarea#metaCode {
+            font-family: 'Courier New', monospace;
+            background-color: #1e293b;
+            color: #38bdf8;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: vertical;
+        }
+
+        textarea#metaCode:focus {
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        .btn-custom {
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        /* --- Responsive Logic --- */
+        @media (max-width: 992px) {
+            .sidebar { left: -260px; }
+            .sidebar.active { left: 0; }
+            .main-content { margin-left: 0; padding: 1rem; }
+            .mobile-nav { display: flex !important; }
+        }
+
+        .mobile-nav {
+            display: none;
+            background: white;
+            padding: 15px 20px;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container-box">
-    <h3 class="mb-3">📊 Tracking / Meta Ads Code</h3>
+    <div class="mobile-nav">
+        <h4 class="m-0 fw-bold text-primary">BigBasket</h4>
+        <button class="btn btn-dark" onclick="toggleSidebar()"><i class="bi bi-list"></i></button>
+    </div>
 
-    <p class="text-muted">
-        Yahan Meta Pixel / Google Ads / koi bhi tracking script paste karo.
-    </p>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">BigBasket</div>
+        <a href="dashboard.html" class="nav-link"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="#" class="nav-link active"><i class="bi bi-graph-up-arrow"></i> Tracking</a>
+        <a href="products.html" class="nav-link"><i class="bi bi-box-seam"></i> Products</a>
+        <div class="mt-auto p-4 d-lg-none">
+            <button class="btn btn-danger w-100" onclick="toggleSidebar()">Close Menu</button>
+        </div>
+    </div>
 
-    <textarea id="metaCode" class="form-control" rows="10"
-        placeholder="Paste your Meta Pixel or Tracking Code here..."></textarea>
+    <div class="main-content">
+        <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div>
+                <h2 class="fw-bold m-0">📊 Tracking Settings</h2>
+                <p class="text-muted small mt-1">Meta Pixel, Google Ads aur tracking scripts manage karein.</p>
+            </div>
+        </div>
 
-    <button class="btn btn-primary mt-3" onclick="saveTracking()">
-        💾 Save Tracking
-    </button>
+        <div class="container-card">
+            <div class="mb-4">
+                <label class="form-label fw-bold text-dark mb-2">Header / Meta Ads Scripts</label>
+                <textarea id="metaCode" class="form-control" rows="12" 
+                    placeholder=""></textarea>
+            </div>
 
-    <button class="btn btn-secondary mt-3" onclick="loadTracking()">
-        🔄 Reload
-    </button>
-</div>
+            <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-primary btn-custom shadow-sm" onclick="saveTracking()">
+                    <i class="bi bi-cloud-arrow-up me-2"></i> Save Tracking
+                </button>
+                <button class="btn btn-light border btn-custom shadow-sm" onclick="loadTracking()">
+                    <i class="bi bi-arrow-clockwise me-2"></i> Reload Data
+                </button>
+            </div>
+        </div>
 
-<script>
-const API = "https://honeydew-bear-702897.hostingersite.com/big/api/";
+        <div class="mt-4 p-3 bg-white border-start border-4 border-primary rounded shadow-sm">
+            <small class="text-muted"><i class="bi bi-info-circle-fill text-primary me-2"></i> <strong>Pro Tip:</strong> Multiple tracking codes ko ek ke niche ek paste karein. Save karne ke baad yeh automatically active ho jayenge.</small>
+        </div>
+    </div>
 
-// Load tracking code
-function loadTracking(){
-    fetch(API + "get_tracking.php", {
-        credentials: "include"
-    })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("metaCode").value = data.code || "";
-    });
-}
+    <script>
+        const API = "https://honeydew-bear-702897.hostingersite.com/big/api/";
 
-// Save tracking code
-function saveTracking(){
-    let code = document.getElementById("metaCode").value;
-
-    let formData = new FormData();
-    formData.append("meta_code", code);
-
-    fetch(API + "update_tracking.php", {
-        method: "POST",
-        body: formData,
-        credentials: "include"
-    })
-    .then(res => res.text())
-    .then(res => {
-        if(res === "success"){
-            alert("✅ Tracking Updated Successfully");
-        } else {
-            alert("❌ Failed to update");
+        // Mobile Sidebar Toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
         }
-    });
-}
 
-// Auto load on page open
-loadTracking();
-</script>
+        // 👉 Load tracking code (Original Logic)
+        function loadTracking(){
+            fetch(API + "get_tracking.php", {
+                credentials: "include"
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("metaCode").value = data.code || "";
+            })
+            .catch(err => console.error("Loading error:", err));
+        }
 
+        // 👉 Save tracking code (Original Logic)
+        function saveTracking(){
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            
+            // Loading Effect
+            btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span> Saving...`;
+            btn.disabled = true;
+
+            let code = document.getElementById("metaCode").value;
+            let formData = new FormData();
+            formData.append("meta_code", code);
+
+            fetch(API + "update_tracking.php", {
+                method: "POST",
+                body: formData,
+                credentials: "include"
+            })
+            .then(res => res.text())
+            .then(res => {
+                if(res.trim() === "success"){
+                    alert("✅ Success: Tracking Updated Successfully");
+                } else {
+                    alert("❌ Error: Update failed");
+                }
+            })
+            .catch(err => alert("❌ Network Error: Could not connect to API"))
+            .finally(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        }
+
+        // Auto load on start
+        loadTracking();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
